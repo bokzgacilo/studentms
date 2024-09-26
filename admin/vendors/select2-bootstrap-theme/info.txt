@@ -1,0 +1,400 @@
+======================================= 
+       System Information              
+======================================= 
+ 
+*** Overview *** 
+Computer Name: DESKTOP-Q8RELM8 
+IP Address:  192.168.100.3 
+Date and Time: 26/08/2024 13:49:28.80 
+ 
+*** System Information *** 
+
+Host Name:                 DESKTOP-Q8RELM8
+OS Name:                   Microsoft Windows 10 Pro
+OS Version:                10.0.19045 N/A Build 19045
+OS Manufacturer:           Microsoft Corporation
+OS Configuration:          Standalone Workstation
+OS Build Type:             Multiprocessor Free
+Registered Owner:          user
+Registered Organization:   
+Product ID:                00331-10000-00001-AA581
+Original Install Date:     05/09/2023, 3:12:57 pm
+System Boot Time:          22/08/2024, 2:56:00 pm
+System Manufacturer:       BIOSTAR Group
+System Model:              B450MHP
+System Type:               x64-based PC
+Processor(s):              1 Processor(s) Installed.
+                           [01]: AMD64 Family 23 Model 96 Stepping 1 AuthenticAMD ~2382 Mhz
+BIOS Version:              American Megatrends International, LLC. 5.17, 05/09/2023
+Windows Directory:         C:\Windows
+System Directory:          C:\Windows\system32
+Boot Device:               \Device\HarddiskVolume3
+System Locale:             en-us;English (United States)
+Input Locale:              en-us;English (United States)
+Time Zone:                 (UTC+08:00) Kuala Lumpur, Singapore
+Total Physical Memory:     15,761 MB
+Available Physical Memory: 5,847 MB
+Virtual Memory: Max Size:  23,697 MB
+Virtual Memory: Available: 6,087 MB
+Virtual Memory: In Use:    17,610 MB
+Page File Location(s):     D:\pagefile.sys
+Domain:                    WORKGROUP
+Logon Server:              \\DESKTOP-Q8RELM8
+Hotfix(s):                 7 Hotfix(s) Installed.
+                           [01]: KB5020872
+                           [02]: KB5000736
+                           [03]: KB5015684
+                           [04]: KB5033052
+                           [05]: KB5036892
+                           [06]: KB5037018
+                           [07]: KB5001405
+Network Card(s):           1 NIC(s) Installed.
+                           [01]: Realtek PCIe GbE Family Controller
+                                 Connection Name: Ethernet
+                                 DHCP Enabled:    Yes
+                                 DHCP Server:     192.168.100.1
+                                 IP address(es)
+                                 [01]: 192.168.100.3
+                                 [02]: fe80::d7ae:cb6a:e0a6:1af6
+Hyper-V Requirements:      VM Monitor Mode Extensions: Yes
+                           Virtualization Enabled In Firmware: Yes
+                           Second Level Address Translation: Yes
+                           Data Execution Prevention Available: Yes
+ 
+
+Windows IP Configuration
+
+   Host Name . . . . . . . . . . . . : DESKTOP-Q8RELM8
+   Primary Dns Suffix  . . . . . . . : 
+   Node Type . . . . . . . . . . . . : Hybrid
+   IP Routing Enabled. . . . . . . . : No
+   WINS Proxy Enabled. . . . . . . . : No
+
+Ethernet adapter Ethernet:
+
+   Connection-specific DNS Suffix  . : 
+   Description . . . . . . . . . . . : Realtek PCIe GbE Family Controller
+   Physical Address. . . . . . . . . : F4-B5-20-66-76-25
+   DHCP Enabled. . . . . . . . . . . : Yes
+   Autoconfiguration Enabled . . . . : Yes
+   Link-local IPv6 Address . . . . . : fe80::d7ae:cb6a:e0a6:1af6%5(Preferred) 
+   IPv4 Address. . . . . . . . . . . : 192.168.100.3(Preferred) 
+   Subnet Mask . . . . . . . . . . . : 255.255.255.0
+   Lease Obtained. . . . . . . . . . : Monday, 26 August 2024 11:10:36 am
+   Lease Expires . . . . . . . . . . : Tuesday, 27 August 2024 11:10:36 am
+   Default Gateway . . . . . . . . . : 192.168.100.1
+   DHCP Server . . . . . . . . . . . : 192.168.100.1
+   DHCPv6 IAID . . . . . . . . . . . : 83146016
+   DHCPv6 Client DUID. . . . . . . . : 00-01-00-01-2C-88-8D-8B-F4-B5-20-66-76-25
+   DNS Servers . . . . . . . . . . . : 192.168.100.1
+   NetBIOS over Tcpip. . . . . . . . : Enabled
+ 
+*** Wi-Fi Connection Details *** 
+The Wireless AutoConfig Service (wlansvc) is not running.
+ 
+*** Available Wi-Fi Networks *** 
+The Wireless AutoConfig Service (wlansvc) is not running.
+ 
+*** User Accounts *** 
+
+User accounts for \\DESKTOP-Q8RELM8
+
+-------------------------------------------------------------------------------
+Administrator            DefaultAccount           Guest                    
+lap                      seanc                    user                     
+WDAGUtilityAccount       
+The command completed successfully.
+
+ 
+*** Connected Users (Remote Sessions) *** 
+ USERNAME              SESSIONNAME        ID  STATE   IDLE TIME  LOGON TIME
+>user                  console            11  Active       9:27  26/08/2024 11:10 am
+ 
+*** Network Connections *** 
+
+Active Connections
+
+  Proto  Local Address          Foreign Address        State           PID
+  TCP    0.0.0.0:80             0.0.0.0:0              LISTENING       15056
+  TCP    0.0.0.0:135            0.0.0.0:0              LISTENING       1184
+  TCP    0.0.0.0:443            0.0.0.0:0              LISTENING       15056
+  TCP    0.0.0.0:445            0.0.0.0:0              LISTENING       4
+  TCP    0.0.0.0:3306           0.0.0.0:0              LISTENING       15112
+  TCP    0.0.0.0:5040           0.0.0.0:0              LISTENING       1952
+  TCP    0.0.0.0:5357           0.0.0.0:0              LISTENING       4
+  TCP    0.0.0.0:5432           0.0.0.0:0              LISTENING       5064
+  TCP    0.0.0.0:28252          0.0.0.0:0              LISTENING       3796
+  TCP    0.0.0.0:49664          0.0.0.0:0              LISTENING       616
+  TCP    0.0.0.0:49665          0.0.0.0:0              LISTENING       876
+  TCP    0.0.0.0:49666          0.0.0.0:0              LISTENING       1704
+  TCP    0.0.0.0:49667          0.0.0.0:0              LISTENING       1660
+  TCP    0.0.0.0:49668          0.0.0.0:0              LISTENING       3136
+  TCP    0.0.0.0:49685          0.0.0.0:0              LISTENING       104
+  TCP    127.0.0.1:5939         0.0.0.0:0              LISTENING       4008
+  TCP    127.0.0.1:6341         0.0.0.0:0              LISTENING       2404
+  TCP    127.0.0.1:51354        0.0.0.0:0              LISTENING       7772
+  TCP    127.0.0.1:51358        0.0.0.0:0              LISTENING       7772
+  TCP    127.0.0.1:51404        0.0.0.0:0              LISTENING       12216
+  TCP    127.0.0.1:51435        0.0.0.0:0              LISTENING       4424
+  TCP    127.0.0.1:53459        0.0.0.0:0              LISTENING       14128
+  TCP    127.0.0.1:53463        0.0.0.0:0              LISTENING       14128
+  TCP    192.168.100.3:139      0.0.0.0:0              LISTENING       4
+  TCP    192.168.100.3:49648    52.226.139.121:443     ESTABLISHED     3544
+  TCP    192.168.100.3:49682    35.208.124.80:443      ESTABLISHED     16464
+  TCP    192.168.100.3:49711    66.203.125.15:443      ESTABLISHED     2404
+  TCP    192.168.100.3:49738    173.194.174.188:5228   ESTABLISHED     16464
+  TCP    192.168.100.3:49754    142.251.220.170:443    ESTABLISHED     16220
+  TCP    192.168.100.3:49755    142.251.220.170:443    ESTABLISHED     16220
+  TCP    192.168.100.3:49759    142.251.220.170:443    ESTABLISHED     16220
+  TCP    192.168.100.3:50786    64.233.189.188:5228    ESTABLISHED     16464
+  TCP    192.168.100.3:50802    163.70.131.20:443      ESTABLISHED     16464
+  TCP    192.168.100.3:50803    163.70.131.20:443      ESTABLISHED     16464
+  TCP    192.168.100.3:50805    163.70.131.11:443      ESTABLISHED     16464
+  TCP    192.168.100.3:50806    163.70.131.56:443      ESTABLISHED     16464
+  TCP    192.168.100.3:50807    163.70.131.20:443      ESTABLISHED     16464
+  TCP    192.168.100.3:51133    163.70.131.20:443      ESTABLISHED     16464
+  TCP    192.168.100.3:51134    163.70.131.56:443      ESTABLISHED     16464
+  TCP    192.168.100.3:51432    18.172.21.57:443       ESTABLISHED     16464
+  TCP    192.168.100.3:52460    163.70.131.20:443      ESTABLISHED     16464
+  TCP    192.168.100.3:52461    163.70.131.20:443      ESTABLISHED     16464
+  TCP    192.168.100.3:52463    163.70.131.11:443      ESTABLISHED     16464
+  TCP    192.168.100.3:52464    163.70.131.20:443      ESTABLISHED     16464
+  TCP    192.168.100.3:52573    120.28.5.3:443         CLOSE_WAIT      13784
+  TCP    192.168.100.3:52596    120.28.5.3:443         CLOSE_WAIT      13784
+  TCP    192.168.100.3:52597    120.28.5.3:443         CLOSE_WAIT      13784
+  TCP    192.168.100.3:52598    120.28.5.3:443         CLOSE_WAIT      13784
+  TCP    192.168.100.3:52599    120.28.5.3:443         CLOSE_WAIT      13784
+  TCP    192.168.100.3:53116    18.172.21.32:443       ESTABLISHED     16464
+  TCP    192.168.100.3:53359    172.64.155.209:443     ESTABLISHED     16464
+  TCP    192.168.100.3:53360    172.64.155.209:443     ESTABLISHED     16464
+  TCP    192.168.100.3:53821    35.190.80.1:443        TIME_WAIT       0
+  TCP    192.168.100.3:53871    34.120.195.249:443     ESTABLISHED     16464
+  TCP    192.168.100.3:53979    216.239.38.223:443     CLOSE_WAIT      16220
+  TCP    192.168.100.3:53997    216.239.38.223:443     CLOSE_WAIT      16220
+  TCP    192.168.100.3:53998    216.239.38.223:443     CLOSE_WAIT      16220
+  TCP    192.168.100.3:54010    104.16.103.112:443     ESTABLISHED     16464
+  TCP    192.168.100.3:54011    104.16.103.112:443     ESTABLISHED     16464
+  TCP    192.168.100.3:54097    192.168.1.255:1688     SYN_SENT        18464
+  TCP    [::]:80                [::]:0                 LISTENING       15056
+  TCP    [::]:135               [::]:0                 LISTENING       1184
+  TCP    [::]:443               [::]:0                 LISTENING       15056
+  TCP    [::]:445               [::]:0                 LISTENING       4
+  TCP    [::]:3306              [::]:0                 LISTENING       15112
+  TCP    [::]:5357              [::]:0                 LISTENING       4
+  TCP    [::]:5432              [::]:0                 LISTENING       5064
+  TCP    [::]:49664             [::]:0                 LISTENING       616
+  TCP    [::]:49665             [::]:0                 LISTENING       876
+  TCP    [::]:49666             [::]:0                 LISTENING       1704
+  TCP    [::]:49667             [::]:0                 LISTENING       1660
+  TCP    [::]:49668             [::]:0                 LISTENING       3136
+  TCP    [::]:49685             [::]:0                 LISTENING       104
+  TCP    [::1]:7679             [::]:0                 LISTENING       16220
+  UDP    0.0.0.0:3702           *:*                                    4880
+  UDP    0.0.0.0:3702           *:*                                    4644
+  UDP    0.0.0.0:3702           *:*                                    4880
+  UDP    0.0.0.0:3702           *:*                                    4644
+  UDP    0.0.0.0:5050           *:*                                    1952
+  UDP    0.0.0.0:5353           *:*                                    12292
+  UDP    0.0.0.0:5353           *:*                                    16464
+  UDP    0.0.0.0:5353           *:*                                    2936
+  UDP    0.0.0.0:5353           *:*                                    16464
+  UDP    0.0.0.0:5353           *:*                                    12292
+  UDP    0.0.0.0:5355           *:*                                    2936
+  UDP    0.0.0.0:28252          *:*                                    3796
+  UDP    0.0.0.0:51805          *:*                                    4008
+  UDP    0.0.0.0:53375          *:*                                    4644
+  UDP    0.0.0.0:56263          *:*                                    16464
+  UDP    0.0.0.0:57621          *:*                                    16464
+  UDP    0.0.0.0:57641          *:*                                    5720
+  UDP    0.0.0.0:60931          *:*                                    4880
+  UDP    0.0.0.0:61132          *:*                                    16464
+  UDP    127.0.0.1:1900         *:*                                    5364
+  UDP    127.0.0.1:56343        *:*                                    3768
+  UDP    127.0.0.1:57627        *:*                                    5364
+  UDP    192.168.100.3:137      *:*                                    4
+  UDP    192.168.100.3:138      *:*                                    4
+  UDP    192.168.100.3:1900     *:*                                    5364
+  UDP    192.168.100.3:2177     *:*                                    1324
+  UDP    192.168.100.3:5353     *:*                                    4008
+  UDP    192.168.100.3:57626    *:*                                    5364
+  UDP    [::]:3702              *:*                                    4644
+  UDP    [::]:3702              *:*                                    4880
+  UDP    [::]:3702              *:*                                    4644
+  UDP    [::]:3702              *:*                                    4880
+  UDP    [::]:5353              *:*                                    16464
+  UDP    [::]:5353              *:*                                    2936
+  UDP    [::]:5353              *:*                                    12292
+  UDP    [::]:5355              *:*                                    2936
+  UDP    [::]:51806             *:*                                    4008
+  UDP    [::]:53376             *:*                                    4644
+  UDP    [::]:60932             *:*                                    4880
+  UDP    [::1]:1900             *:*                                    5364
+  UDP    [::1]:5353             *:*                                    4008
+  UDP    [::1]:57625            *:*                                    5364
+  UDP    [fe80::d7ae:cb6a:e0a6:1af6%5]:1900  *:*                                    5364
+  UDP    [fe80::d7ae:cb6a:e0a6:1af6%5]:2177  *:*                                    1324
+  UDP    [fe80::d7ae:cb6a:e0a6:1af6%5]:57624  *:*                                    5364
+ 
+*** Active TCP/IP Connections and Processes *** 
+The requested operation requires elevation.
+ 
+*** Routing Table *** 
+===========================================================================
+Interface List
+  5...f4 b5 20 66 76 25 ......Realtek PCIe GbE Family Controller
+  1...........................Software Loopback Interface 1
+===========================================================================
+
+IPv4 Route Table
+===========================================================================
+Active Routes:
+Network Destination        Netmask          Gateway       Interface  Metric
+          0.0.0.0          0.0.0.0    192.168.100.1    192.168.100.3     25
+        127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
+        127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
+  127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+    192.168.100.0    255.255.255.0         On-link     192.168.100.3    281
+    192.168.100.3  255.255.255.255         On-link     192.168.100.3    281
+  192.168.100.255  255.255.255.255         On-link     192.168.100.3    281
+        224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
+        224.0.0.0        240.0.0.0         On-link     192.168.100.3    281
+  255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
+  255.255.255.255  255.255.255.255         On-link     192.168.100.3    281
+===========================================================================
+Persistent Routes:
+  None
+
+IPv6 Route Table
+===========================================================================
+Active Routes:
+ If Metric Network Destination      Gateway
+  1    331 ::1/128                  On-link
+  5    281 fe80::/64                On-link
+  5    281 fe80::d7ae:cb6a:e0a6:1af6/128
+                                    On-link
+  1    331 ff00::/8                 On-link
+  5    281 ff00::/8                 On-link
+===========================================================================
+Persistent Routes:
+  None
+ 
+*** Services and Their Status *** 
+These Windows services are started:
+
+   Adobe Acrobat Update Service
+   Agent Activation Runtime_31206db9
+   AMD Crash Defender Service
+   AMD External Events Utility
+   Application Information
+   Application Management
+   AVCTP service
+   AzureAttestService
+   Background Tasks Infrastructure Service
+   Base Filtering Engine
+   Capability Access Manager Service
+   CaptureService_31206db9
+   Chrome Remote Desktop Service
+   Clipboard User Service_31206db9
+   CNG Key Isolation
+   COM+ Event System
+   Connected Devices Platform Service
+   Connected Devices Platform User Service_31206db9
+   Connected User Experiences and Telemetry
+   CoreMessaging
+   Credential Manager
+   Cryptographic Services
+   Data Sharing Service
+   Data Usage
+   DCOM Server Process Launcher
+   Device Association Service
+   DevQuery Background Discovery Broker
+   DHCP Client
+   Diagnostic Policy Service
+   Diagnostic Service Host
+   Display Enhancement Service
+   Display Policy Service
+   Distributed Link Tracking Client
+   DNS Client
+   Encrypting File System (EFS)
+   Function Discovery Provider Host
+   Function Discovery Resource Publication
+   GameDVR and Broadcast User Service_31206db9
+   Geolocation Service
+   Human Interface Device Service
+   IP Helper
+   Local Session Manager
+   Microsoft Account Sign-in Assistant
+   Microsoft Defender Antivirus Network Inspection Service
+   Microsoft Defender Antivirus Service
+   Microsoft Defender Core Service
+   Microsoft Office ClickToRun Service
+   Microsoft Store Install Service
+   Network Connected Devices Auto-Setup
+   Network Connection Broker
+   Network List Service
+   Network Location Awareness
+   Network Store Interface Service
+   Plug and Play
+   postgresql-x64-16 - PostgreSQL Server 16
+   Power
+   Print Spooler
+   Program Compatibility Assistant Service
+   Quality Windows Audio Video Experience
+   Radio Management Service
+   Remote Access Connection Manager
+   Remote Procedure Call (RPC)
+   RPC Endpoint Mapper
+   Secure Socket Tunneling Protocol Service
+   Security Accounts Manager
+   Security Center
+   Server
+   Shell Hardware Detection
+   Software Protection
+   spacedeskService
+   SQL Server VSS Writer
+   SSDP Discovery
+   State Repository Service
+   Storage Service
+   Sync Host_31206db9
+   SysMain
+   System Event Notification Service
+   System Events Broker
+   System Guard Runtime Monitor Broker
+   Task Scheduler
+   TCP/IP NetBIOS Helper
+   TeamViewer
+   Themes
+   Time Broker
+   Touch Keyboard and Handwriting Panel Service
+   Update Orchestrator Service
+   User Manager
+   User Profile Service
+   Web Account Manager
+   WebClient
+   Windows Audio
+   Windows Audio Endpoint Builder
+   Windows Biometric Service
+   Windows Connection Manager
+   Windows Defender Firewall
+   Windows Event Log
+   Windows Font Cache Service
+   Windows License Manager Service
+   Windows Management Instrumentation
+   Windows Modules Installer
+   Windows Push Notifications System Service
+   Windows Push Notifications User Service_31206db9
+   Windows Search
+   Windows Security Service
+   WinHTTP Web Proxy Auto-Discovery Service
+   Workstation
+
+The command completed successfully.
+
+ 
+*** User Profile Information *** 
+ 
+*** Disk Information *** 
+C a p t i o n                                 D e v i c e I D                         M o d e l                                     S i z e                        
+ S T 1 0 0 0 D M 0 0 3 - 9 Y N 1 6 2           \ \ . \ P H Y S I C A L D R I V E 0     S T 1 0 0 0 D M 0 0 3 - 9 Y N 1 6 2           1 0 0 0 2 0 2 2 7 3 2 8 0      
+ R a m s t a   S S D   S 8 0 0   2 5 6 G B     \ \ . \ P H Y S I C A L D R I V E 1     R a m s t a   S S D   S 8 0 0   2 5 6 G B     2 5 6 0 5 2 9 6 6 4 0 0        
+  
