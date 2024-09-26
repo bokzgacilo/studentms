@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="images/KPK_Logo.svg" />
+    <title>View PDF</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+    <!-- AJAX -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+    <!-- costume css -->
+    <link rel="stylesheet" type="text/css" href="css/flipbook.style.css" />
+    <link rel="stylesheet" type="text/css" href="css/font-awesome.css" />
+    <link rel="stylesheet" type="text/css" href="css/footer.css" />
+    <!-- Bootstrap Css -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link
+      rel="stylesheet"
+      href="https://use.fontawesome.com/releases/v5.8.1/css/all.css"
+      integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf"
+      crossorigin="anonymous"
+    />
+
+    <!-- Include JS -->
+    <script src="js/flipbook.min.js"></script>
+
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $("#read").flipBook({
+          // Layout Setting
+          pdfUrl: "pdf/files-of-hand-book.pdf",
+          lightBox: false,
+          layout: 4,
+          currentPage: { vAlign: "bottom", hAlign: "left" },
+          
+          // Remove buttons
+          btnShare: { enabled: false },
+          btnPrint: { enabled: false }, // Print button removed
+          btnDownloadPages: { enabled: false }, // Download button removed
+      
+          btnColor: "rgb(255,120,60)",
+          sideBtnColor: "rgb(255,120,60)",
+          sideBtnSize: 60,
+          sideBtnBackground: "rgba(0,0,0,.7)",
+          sideBtnRadius: 60,
+          btnSound: { vAlign: "bottom", hAlign: "left" },
+      
+          // Full Screen Button
+          btnFullScreen: {
+              enabled: false,
+              title: "Full Screen",
+              icon: "fa-expand",
+              icon2: "fullscreen",
+              hideOnMobile: false,
+              vAlign: "top",
+              hAlign: "right",
+          },
+        });
+      });
+
+    </script>
+
+    <style>
+      .flipbook-main-wrapper {
+        background-color: transparent !important;
+      }
+      [data-name="btnClose"] {
+        display: none;
+      }
+
+    #search-container {
+        position: absolute;
+        z-index: 10; /* Ensure it's above the canvas */
+        top: 0; /* Adjust the position */
+        left: 0; /* Adjust the position */
+    }
+    #read {
+        width: 600px; /* Adjust as needed */
+        height: 800px;
+    }
+
+      body {
+        position: relative;
+
+        background-color: #f6f6f6;
+      }
+      #author {
+        font-size: 15px;
+        font-weight: bold;
+        color: #0186c9;
+      }
+      #date {
+        margin-left: 10px;
+        font-size: 15px;
+        color: #819196;
+      }
+      #size {
+        font-size: 15px;
+        color: #819196;
+      }
+      #description {
+        margin-top: 20px;
+        font-weight: lighter;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="d-flex flex-row" id="search-container">
+      <input class="form-control mr-2" type="text" id="searchTerm" placeholder="Search...">
+      <button class="btn btn-primary" id="searchButton">Search</button>
+    </div>
+    <div id="read"></div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js"
+      integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js"
+      integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ"
+      crossorigin="anonymous"
+    ></script>
+  </body>
+</html>

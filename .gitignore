@@ -1,0 +1,6 @@
+/admin/vendors
+/admin/includes/dbconnection.php
+/admin/includes/restconnection.php
+/user/vendors
+/includes/dbconnection.php
+/user/includes/dbconnection.php
