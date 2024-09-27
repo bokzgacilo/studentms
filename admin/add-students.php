@@ -18,7 +18,7 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
     $altconnum = $_POST['altconnum'];
     $address = $_POST['address'];
     $uname = $_POST['uname'];
-    $password = md5($_POST['password']);
+    $password = $_POST['password'];
     $image = $_FILES["image"]["name"];
     $ret = "select UserName from tblstudent where UserName=:uname || StuID=:stuid";
     $query = $dbh->prepare($ret);
@@ -124,12 +124,13 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
 
                       <div class="form-group">
                         <label for="exampleInputName1">Student Name</label>
-                        <input type="text" name="stuname" value="" class="form-control" required='true'>
+                        <input type="text" name="stuname" id="stuname" value="" class="form-control" required='true'>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputName1">Student Email</label>
                         <input type="text" name="stuemail" value="" class="form-control" required='true'>
                       </div>
+                      
                       <div class="form-group">
                         <label for="exampleInputEmail3">Student Class</label>
                         <select name="stuclass" class="form-control" required='true'>
@@ -148,6 +149,10 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
                             </option>
                           <?php } ?>
                         </select>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleInputName1">Student Contact Number</label>
+                        <input type="text" name="altconnum" id="altconnum" value="" class="form-control" required='true' maxlength="11">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputName1">Gender</label>
@@ -173,22 +178,18 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
                       <h3>Parents/Guardian's details</h3>
                       <div class="form-group">
                         <label for="exampleInputName1">Father's Name</label>
-                        <input type="text" name="fname" value="" class="form-control" required='true'>
+                        <input type="text" name="fname" id="fname" value="" class="form-control" required='true'>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputName1">Mother's Name</label>
-                        <input type="text" name="mname" value="" class="form-control" required='true'>
+                        <input type="text" name="mname" id="mname" value="" class="form-control" required='true'>
                       </div>
                       <div class="form-group">
                         <label for="exampleInputName1">Contact Number</label>
-                        <input type="text" name="connum" value="" class="form-control" required='true' maxlength="11">
+                        <input type="text" name="connum" id="connum" value="" class="form-control" required='true' maxlength="11">
                          
                       </div>
-                      <div class="form-group">
-                        <label for="exampleInputName1">Alternate Contact Number</label>
-                        <input type="text" name="altconnum" value="" class="form-control" required='true' maxlength="11">
                      
-                      </div>
                       <div class="form-group">
                         <label for="exampleInputName1">Address</label>
                         <textarea name="address" class="form-control" required='true'></textarea>
@@ -221,6 +222,28 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
     </div>
     <script>
       $(document).ready(function(){
+        $('#connum, #altconnum').keypress(function(event) {
+            var charCode = event.which;
+            // Allow only numbers (0-9)
+            if (charCode >= 48 && charCode <= 57) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+        $('#stuname, #fname, #mname').keypress(function(event) {
+          var charCode = event.which;
+          // Allow A-Z, a-z and space (charCode 32)
+          if ((charCode >= 65 && charCode <= 90) || 
+              (charCode >= 97 && charCode <= 122) || 
+              charCode == 32) {
+              return true;
+          } else {
+              return false;
+          }
+      });
+
         // Bind the input event to validate while typing
         $('#uname, #stuid').on('input', function() {
           // Get the current value of the input field

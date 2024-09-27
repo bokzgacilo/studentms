@@ -18,8 +18,9 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
     $connum = $_POST['connum'];
     $altconnum = $_POST['altconnum'];
     $address = $_POST['address'];
+    $password = $_POST['password'];
     $eid = $_GET['editid'];
-    $sql = "update tblstudent set StudentName=:stuname,StudentEmail=:stuemail,StudentClass=:stuclass,Gender=:gender,DOB=:dob,StuID=:stuid,FatherName=:fname,MotherName=:mname,ContactNumber=:connum,AltenateNumber=:altconnum,verify=:verify,Address=:address where ID=:eid";
+    $sql = "update tblstudent set StudentName=:stuname,StudentEmail=:stuemail,StudentClass=:stuclass,Gender=:gender,DOB=:dob,StuID=:stuid,FatherName=:fname,MotherName=:mname,ContactNumber=:connum,AltenateNumber=:altconnum,verify=:verify,Address=:address, Password=:password where ID=:eid";
     $query = $dbh->prepare($sql);
     $query->bindParam(':stuname', $stuname, PDO::PARAM_STR);
     $query->bindParam(':stuemail', $stuemail, PDO::PARAM_STR);
@@ -32,6 +33,7 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
     $query->bindParam(':connum', $connum, PDO::PARAM_STR);
     $query->bindParam(':altconnum', $altconnum, PDO::PARAM_STR);
     $query->bindParam(':address', $address, PDO::PARAM_STR);
+    $query->bindParam(':password', $password, PDO::PARAM_STR);
     $query->bindParam(':eid', $eid, PDO::PARAM_STR);
     $query->bindParam(':verify', $verify, PDO::PARAM_STR);
     $query->execute();
@@ -54,6 +56,7 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
     <!-- Plugin css for this page -->
     <link rel="stylesheet" href="vendors/select2/select2.min.css">
     <link rel="stylesheet" href="vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- End plugin css for this page -->
     <!-- inject:css -->
     <!-- endinject -->
@@ -102,7 +105,7 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
                         foreach ($results as $row) { ?>
                           <div class="form-group">
                             <label for="exampleInputName1">Student Name</label>
-                            <input type="text" name="stuname" value="<?php echo htmlentities($row->StudentName); ?>"
+                            <input type="text" name="stuname" id="stuname" value="<?php echo htmlentities($row->StudentName); ?>"
                               class="form-control" required='true'>
                           </div>
                           <div class="form-group">
@@ -143,6 +146,11 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
                             </select>
                           </div>
                           <div class="form-group">
+                            <label for="exampleInputName1">Student Contact Number</label>
+                            <input type="text" name="altconnum" id="altconnum" value="<?php echo htmlentities($row->AltenateNumber); ?>"
+                              class="form-control" required='true' maxlength="10" pattern="[0-9]+">
+                          </div>
+                          <div class="form-group">
                             <label for="exampleInputName1">Gender</label>
                             <select name="gender" value="" class="form-control" required='true'>
                               <option value="<?php echo htmlentities($row->Gender); ?>">
@@ -167,24 +175,20 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
                           <h3>Parents/Guardian's details</h3>
                           <div class="form-group">
                             <label for="exampleInputName1">Father's Name</label>
-                            <input type="text" name="fname" value="<?php echo htmlentities($row->FatherName); ?>"
+                            <input type="text" name="fname" id="fname" value="<?php echo htmlentities($row->FatherName); ?>"
                               class="form-control" required='true'>
                           </div>
                           <div class="form-group">
                             <label for="exampleInputName1">Mother's Name</label>
-                            <input type="text" name="mname" value="<?php echo htmlentities($row->MotherName); ?>"
+                            <input type="text" name="mname" id="mname" value="<?php echo htmlentities($row->MotherName); ?>"
                               class="form-control" required='true'>
                           </div>
                           <div class="form-group">
                             <label for="exampleInputName1">Contact Number</label>
-                            <input type="text" name="connum" value="<?php echo htmlentities($row->ContactNumber); ?>"
+                            <input type="text" name="connum" id="connum" value="<?php echo htmlentities($row->ContactNumber); ?>"
                               class="form-control" required='true' maxlength="10" pattern="[0-9]+">
                           </div>
-                          <div class="form-group">
-                            <label for="exampleInputName1">Alternate Contact Number</label>
-                            <input type="text" name="altconnum" value="<?php echo htmlentities($row->AltenateNumber); ?>"
-                              class="form-control" required='true' maxlength="10" pattern="[0-9]+">
-                          </div>
+                          
                           <div class="form-group">
                             <label for="exampleInputName1">Address</label>
                             <textarea name="address" class="form-control"
@@ -198,8 +202,8 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
                           </div>
                           <div class="form-group">
                             <label for="exampleInputName1">Password</label>
-                            <input type="Password" name="password" value="<?php echo htmlentities($row->Password); ?>"
-                              class="form-control" readonly='true'>
+                            <input type="text" name="password" value="<?php echo htmlentities($row->Password); ?>"
+                              class="form-control">
                           </div><?php $cnt = $cnt + 1;
                         }
                       } ?>
@@ -220,6 +224,31 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
       </div>
       <!-- page-body-wrapper ends -->
     </div>
+    <script>
+      $(document).ready(function(){
+        $('#connum, #altconnum').keypress(function(event) {
+            var charCode = event.which;
+            // Allow only numbers (0-9)
+            if (charCode >= 48 && charCode <= 57) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+        $('#stuname, #fname, #mname').keypress(function(event) {
+          var charCode = event.which;
+          // Allow A-Z, a-z and space (charCode 32)
+          if ((charCode >= 65 && charCode <= 90) || 
+              (charCode >= 97 && charCode <= 122) || 
+              charCode == 32) {
+              return true;
+          } else {
+              return false;
+          }
+        })
+      })
+    </script>
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="vendors/js/vendor.bundle.base.js"></script>

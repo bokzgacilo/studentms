@@ -55,7 +55,8 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
               </nav>
             </div>
             <div class="row">
-                  <iframe allowfullscreen="allowfullscreen" scrolling="no" class="fp-iframe" style="border: none; width: 100%; height: 600px;" src="https://heyzine.com/flip-book/df840f72f7.html"></iframe>
+            <iframe allowfullscreen="allowfullscreen" scrolling="no" class="fp-iframe" style="border: 1px solid lightgray; width: 100%; height: 600px;" src="https://heyzine.com/flip-book/4cc96bca28.html"></iframe>
+                  <!-- <iframe allowfullscreen="allowfullscreen" scrolling="no" class="fp-iframe" style="border: none; width: 100%; height: 600px;" src="https://heyzine.com/flip-book/df840f72f7.html"></iframe> -->
                   <!-- <div style="position:relative;padding-top:max(60%,324px);width:100%;height:0;"><iframe style="position:absolute;border:none;width:100%;height:100%;left:0;top:0;" src="https://online.fliphtml5.com/sqzrj/gsah/"  seamless="seamless" scrolling="no" frameborder="0" allowtransparency="true" allowfullscreen="false" ></iframe></div> -->
                     <!-- <iframe src="../pdf/hand-book.html" style="border: none; width: 100%; height: 1000px;"></iframe> -->
             </div>

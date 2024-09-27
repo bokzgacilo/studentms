@@ -3,13 +3,13 @@ session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
 error_reporting(0);
-if (strlen($_SESSION['sturecmsaid'] == 0)) {
+if (strlen($_SESSION['sturecmsaid'] == 0)) { 
   header('location:logout.php');
 } else {
   if (isset($_POST['submit'])) {
     $adminid = $_SESSION['sturecmsaid'];
-    $cpassword = md5($_POST['currentpassword']);
-    $newpassword = md5($_POST['newpassword']);
+    $cpassword = $_POST['currentpassword'];
+    $newpassword = $_POST['newpassword'];
     $sql = "SELECT ID FROM tbladmin WHERE ID=:adminid and Password=:cpassword";
     $query = $dbh->prepare($sql);
     $query->bindParam(':adminid', $adminid, PDO::PARAM_STR);
