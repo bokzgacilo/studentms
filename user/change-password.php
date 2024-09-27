@@ -8,8 +8,8 @@ if (strlen($_SESSION['sturecmsstuid'] == 0)) {
 } else {
   if (isset($_POST['submit'])) {
     $sid = $_SESSION['sturecmsstuid'];
-    $cpassword = md5($_POST['currentpassword']);
-    $newpassword = md5($_POST['newpassword']);
+    $cpassword = $_POST['currentpassword'];
+    $newpassword = $_POST['newpassword'];
     $sql = "SELECT StuID FROM tblstudent WHERE StuID=:sid and Password=:cpassword";
     $query = $dbh->prepare($sql);
     $query->bindParam(':sid', $sid, PDO::PARAM_STR);

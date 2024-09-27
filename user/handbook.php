@@ -54,7 +54,8 @@ if (strlen($_SESSION['sturecmsstuid'] == 0)) {
               <div class="col-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                  <iframe allowfullscreen="allowfullscreen" scrolling="no" class="fp-iframe" style="border: 0px; width: 100%; height: 600px;" src="https://heyzine.com/flip-book/f81d90f844.html"></iframe>
+                  <iframe allowfullscreen="allowfullscreen" scrolling="no" class="fp-iframe" style="border: 1px solid lightgray; width: 100%; height: 600px;" src="https://heyzine.com/flip-book/4cc96bca28.html"></iframe>
+                  <!-- <iframe allowfullscreen="allowfullscreen" scrolling="no" class="fp-iframe" style="border: 0px; width: 100%; height: 600px;" src="https://heyzine.com/flip-book/f81d90f844.html"></iframe> -->
                     <!-- <iframe src="../pdf/v-pdf.html" width="100%" height="1000px" style="border:none;"></iframe> -->
                   </div>
                 </div>

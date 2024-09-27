@@ -27,6 +27,7 @@
         <ul class="nav navbar-nav navbar-right margin-top cl-effect-2">
           <li><a style="color: #000 !important;" href="index.php"><span data-hover="Home">Home</span></a></li>
           <li><a style="color: #000 !important;" href="contact.php"><span data-hover="Contact">Contact</span></a></li>
+          <li><a style="color: #000 !important;" href="about.php"><span data-hover="About">About</span></a></li>
           <li><a style="color: #000 !important;" href="admin/login.php"><span data-hover="Contact">Admin</span></a></li>
         </ul>
         <!-- <div class="clearfix"> </div> -->

@@ -88,23 +88,7 @@ include('includes/dbconnection.php');
       </div>
     </div>
   </div>
-  <div class="welcome">
-    <div class="container">
-      <?php
-      $sql = "SELECT * from tblpage where PageType='aboutus'";
-      $query = $dbh->prepare($sql);
-      $query->execute();
-      $results = $query->fetchAll(PDO::FETCH_OBJ);
-
-      $cnt = 1;
-      if ($query->rowCount() > 0) {
-        foreach ($results as $row) { ?>
-          <h2><?php echo htmlentities($row->PageTitle); ?></h2>
-          <p><?php echo ($row->PageDescription); ?></p><?php $cnt = $cnt + 1;
-        }
-      } ?>
-    </div>
-  </div>
+  
   <!--/welcome-->
 
 

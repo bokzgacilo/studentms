@@ -57,7 +57,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ':altconnum' => $altconnum,
     ':address' => $address,
     ':uname' => $uname,
-    ':password' => md5($_POST['password']),
+    ':password' => $_POST['password'],
     ':image' => $image
   ]);
 
@@ -160,6 +160,28 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   </div>
   <script>
     $(document).ready(function(){
+      $('#connum, #altconnum').keypress(function(event) {
+            var charCode = event.which;
+            // Allow only numbers (0-9)
+            if (charCode >= 48 && charCode <= 57) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+      $('#stuname, #fname, #mname').keypress(function(event) {
+          var charCode = event.which;
+          // Allow A-Z, a-z and space (charCode 32)
+          if ((charCode >= 65 && charCode <= 90) || 
+              (charCode >= 97 && charCode <= 122) || 
+              charCode == 32) {
+              return true;
+          } else {
+              return false;
+          }
+      });
+
       // Bind the input event to validate while typing
       $('#uname').on('input', function() {
         // Get the current value of the input field

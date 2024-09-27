@@ -5,7 +5,7 @@ include('includes/dbconnection.php');
 
 if (isset($_POST['login'])) {
   $stuid = $_POST['stuid'];
-  $password = md5($_POST['password']);
+  $password = $_POST['password'];
 
   // Modify the query to also check the 'verify' column
   $sql = "SELECT StuID, ID, StudentClass, verify FROM tblstudent WHERE (UserName=:stuid || StuID=:stuid) and Password=:password";

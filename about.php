@@ -55,7 +55,7 @@ include('includes/dbconnection.php');
 			<div class="about-info-grids">
 
 				<div class="col-md-12 abt-info-pic">
-					<?php
+					<!-- <?php
 					$sql = "SELECT * from tblpage where PageType='aboutus'";
 					$query = $dbh->prepare($sql);
 					$query->execute();
@@ -67,7 +67,7 @@ include('includes/dbconnection.php');
 
 							<p><?php echo ($row->PageDescription); ?></p><?php $cnt = $cnt + 1;
 						}
-					} ?>
+					} ?> -->
 
 				</div>
 				<div class="clearfix"> </div>
