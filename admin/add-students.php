@@ -213,13 +213,13 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
-          <?php include_once('includes/footer.php'); ?>
           <!-- partial -->
         </div>
         <!-- main-panel ends -->
       </div>
       <!-- page-body-wrapper ends -->
     </div>
+                          </div>
     <script>
       $(document).ready(function(){
         $('#connum, #altconnum').keypress(function(event) {
@@ -292,6 +292,8 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
     <script src="js/typeahead.js"></script>
     <script src="js/select2.js"></script>
     <!-- End custom js for this page -->
+    <?php include_once('includes/footer.php'); ?>
+
   </body>
 
   </html><?php } ?>

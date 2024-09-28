@@ -101,7 +101,7 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
                             $results1 = $query1->fetchAll(PDO::FETCH_OBJ);
                             $total_rows = $query1->rowCount();
                             $total_pages = ceil($total_rows / $no_of_records_per_page);
-                            $sql = "SELECT * from tblclass LIMIT $offset, $no_of_records_per_page";
+                            $sql = "SELECT * from tblclass";
                             $query = $dbh->prepare($sql);
                             $query->execute();
                             $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -128,7 +128,7 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
                           </tbody>
                         </table>
                       </div>
-                      <div align="left">
+                      <!-- <div align="left">
                         <ul class="pagination">
                           <li><a href="?pageno=1"><strong>First></strong></a></li>
                           <li class="<?php if ($pageno <= 1) {
@@ -155,7 +155,7 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
                           <li><a href="?pageno=<?php echo $total_pages; ?>"><strong
                                 style="padding-left: 10px">Last</strong></a></li>
                         </ul>
-                      </div>
+                      </div> -->
                     </div>
                   </div>
                 </div>
@@ -163,13 +163,13 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
             </div>
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->
-            <?php include_once('includes/footer.php'); ?>
             <!-- partial -->
           </div>
           <!-- main-panel ends -->
         </div>
         <!-- page-body-wrapper ends -->
       </div>
+                            </div>
       <!-- container-scroller -->
       <!-- plugins:js -->
       <script src="vendors/js/vendor.bundle.base.js"></script>
@@ -187,6 +187,8 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
       <!-- Custom js for this page -->
       <script src="./js/dashboard.js"></script>
       <!-- End custom js for this page -->
+      <?php include_once('includes/footer.php'); ?>
+
     </body>
 
     </html><?php } ?>

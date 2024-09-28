@@ -73,7 +73,7 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
                             <th class="font-weight-bold">Violation Type</th>
                             <th class="font-weight-bold">Offense</th>
                             <th class="font-weight-bold">Penalty</th>
-                            <th class="font-weight-bold">Severity</th>
+                            <th class="font-weight-bold">Sanctions</th>
                             <th class="font-weight-bold">Action</th>
                           </tr>
                         </thead>
@@ -143,13 +143,16 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
 
 
                   </div>
+
                 </div>
+
               </div>
+
             </div>
+
           </div>
           <!-- content-wrapper ends -->
           <!-- partial:partials/_footer.html -->
-          <?php include_once('includes/footer.php'); ?>
           <!-- partial -->
         </div>
         <!-- main-panel ends -->
@@ -203,6 +206,8 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
         }
       }
     </script>
+          <?php include_once('includes/footer.php'); ?>
+
   </body>
 
   </html>

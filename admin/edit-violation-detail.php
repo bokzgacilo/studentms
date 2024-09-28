@@ -122,7 +122,7 @@ if (isset($_POST['submit'])) {
                         required><?php echo htmlspecialchars($violation['description']); ?></textarea>
                     </div>
                     <div class="form-group">
-                      <label for="severity">Severity</label>
+                      <label for="severity">Sanction</label>
                       <select name="severity" class="form-control" required>
                         <option value="1" <?php echo ($violation['severity'] == '1') ? 'selected' : ''; ?>>1st Offense
                           (Low)

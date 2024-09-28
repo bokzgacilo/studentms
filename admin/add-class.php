@@ -110,13 +110,16 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
             </div>
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->
-            <?php include_once('includes/footer.php'); ?>
             <!-- partial -->
           </div>
           <!-- main-panel ends -->
         </div>
         <!-- page-body-wrapper ends -->
+
       </div>
+</div>
+<?php include_once('includes/footer.php'); ?>
+
       <!-- container-scroller -->
       <!-- plugins:js -->
       <script src="vendors/js/vendor.bundle.base.js"></script>
@@ -133,6 +136,7 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
       <script src="js/typeahead.js"></script>
       <script src="js/select2.js"></script>
       <!-- End custom js for this page -->
+
     </body>
 
     </html><?php } ?>

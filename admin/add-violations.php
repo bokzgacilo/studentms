@@ -170,9 +170,9 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
                       </select>
                     </div>
                     <div class="form-group">
-                      <label for="severity">Severity</label>
+                      <label for="severity">Sanction</label>
                       <select name="severity" class="form-control" required='true'>
-                        <option value="">Select Severity</option>
+                        <option value="">Select Sanction</option>
                         <option value="1">1st Offense </option>
                         <option value="2">2nd Offense </option>
                         <option value="3">3rd Offense </option>
@@ -193,13 +193,14 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
         </div>
         <!-- content-wrapper ends -->
         <!-- partial:partials/_footer.html -->
-        <?php include_once('includes/footer.php'); ?>
         <!-- partial -->
       </div>
       <!-- main-panel ends -->
     </div>
     <!-- page-body-wrapper ends -->
   </div>
+  <?php include_once('includes/footer.php'); ?>
+
   <script>
     $(document).ready(function(){
       $('#add-violation-form').on('submit', function(event){

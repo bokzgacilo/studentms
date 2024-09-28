@@ -62,7 +62,7 @@ echo updateIsReading($_SESSION['sturecmsuid'], false);
                         <th>Violation Date</th>
                         <th>Violation Type</th>
                         <th>Description</th>
-                        <th>Severity</th>
+                        <th>Sanctions</th>
                         <th>Penalty</th>
                       </tr>
                     </thead>

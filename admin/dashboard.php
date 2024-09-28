@@ -133,7 +133,6 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
             </div>
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->
-            <?php include_once('includes/footer.php'); ?>
             <!-- partial -->
           </div>
           <!-- main-panel ends -->
@@ -157,6 +156,8 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
       <!-- Custom js for this page -->
       <script src="js/dashboard.js"></script>
       <!-- End custom js for this page -->
+      <?php include_once('includes/footer.php'); ?>
+
     </body>
 
     </html><?php } ?>

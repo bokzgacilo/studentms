@@ -43,16 +43,13 @@ include('includes/dbconnection.php');
 	<!--header-->
 	<?php include_once('includes/header.php'); ?>
 	<!-- Top Navigation -->
-	<div class="banner banner5">
-		<div class="container">
-			<h2>Contact</h2>
-		</div>
-	</div>
 	<!--header-->
 	<!-- contact -->
-	<div class="contact">
+	<div class="testimonials">
 		<!-- container -->
-		<div class="container">
+		<div class="container" style="color: #fff !important;">
+			<h2>Contact</h2>
+
 			<div class="contact-info">
 				<h3 class="c-text">Feel Free to contact with us!!!</h3>
 			</div>

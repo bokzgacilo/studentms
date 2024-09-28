@@ -93,13 +93,14 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
             </div>
             <!-- content-wrapper ends -->
             <!-- partial:partials/_footer.html -->
-            <?php include_once('includes/footer.php'); ?>
             <!-- partial -->
           </div>
           <!-- main-panel ends -->
         </div>
         <!-- page-body-wrapper ends -->
       </div>
+      <?php include_once('includes/footer.php'); ?>
+
       <!-- container-scroller -->
       <!-- plugins:js -->
       <script src="vendors/js/vendor.bundle.base.js"></script>
