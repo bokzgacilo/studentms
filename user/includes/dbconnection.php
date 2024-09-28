@@ -23,6 +23,7 @@ try {
 function updateIsReading($studentId, $status) {
   global $dbh;
   try {
+    date_default_timezone_set('Asia/Manila');
       // Prepare the SQL statement to update the column
       $sql = "UPDATE tblstudent SET isReading = :status, last_seen = NOW() WHERE ID = :studentId";
       $query = $dbh->prepare($sql);
