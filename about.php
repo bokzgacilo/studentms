@@ -43,15 +43,11 @@ include('includes/dbconnection.php');
 	<!--header-->
 	<?php include_once('includes/header.php'); ?>
 	<!-- Top Navigation -->
-	<div class="banner banner5">
+	<div class="testimonials">
 		<div class="container">
-			<h2>About</h2>
-		</div>
-	</div>
-	<!--header-->
-	<!-- About -->
-	<div class="about">
-		<div class="container">
+      <div class="about">
+        <h2 style="color: #fff; font-size: 40px;">About Us</h2>
+
 			<div class="about-info-grids">
 
 				<div class="col-md-12 abt-info-pic">
@@ -74,7 +70,11 @@ include('includes/dbconnection.php');
 			</div>
 
 		</div>
+		</div>
 	</div>
+	<!--header-->
+	<!-- About -->
+	
 	<!-- /About -->
 	<?php include_once('includes/footer.php'); ?>
 	<!--/copy-rights-->

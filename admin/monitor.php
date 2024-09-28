@@ -54,6 +54,8 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
                     <th class="font-weight-bold">Student Class</th>
                     <th class="font-weight-bold">Student Name</th>
                     <th class="font-weight-bold">Student Email</th>
+                    <th class="font-weight-bold">Last Seen</th>
+                    <th class="font-weight-bold">Active</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -74,11 +76,10 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
                   $results1 = $query1->fetchAll(PDO::FETCH_OBJ);
                   $total_rows = $query1->rowCount();
                   $total_pages = ceil($total_rows / $no_of_records_per_page);
-                  $sql = "SELECT tblstudent.StuID, tblstudent.ID as sid, tblstudent.StudentName, tblstudent.StudentEmail, tblstudent.DateofAdmission, tblclass.ClassName, tblclass.Section
+                  $sql = "SELECT tblstudent.StuID, tblstudent.isReading, tblstudent.last_seen, tblstudent.ID as sid, tblstudent.StudentName, tblstudent.StudentEmail, tblstudent.DateofAdmission, tblclass.ClassName, tblclass.Section
                     FROM tblstudent
                     JOIN tblclass ON tblclass.ID = tblstudent.StudentClass
-                    WHERE tblstudent.isReading = true
-                    LIMIT $offset, $no_of_records_per_page";
+                    ";
                   $query = $dbh->prepare($sql);
                   $query->execute();
                   $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -94,6 +95,38 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
                         </td>
                         <td><?php echo htmlentities($row->StudentName); ?></td>
                         <td><?php echo htmlentities($row->StudentEmail); ?></td>
+                        <td>
+                          <?php 
+                            // echo htmlentities($row->last_seen); 
+                            $datetime = new DateTime($row->last_seen);
+                            $formattedDate = $datetime->format('F d, Y h:i A');
+                            echo $formattedDate;
+                          ?>
+                        </td>
+                        <td>
+                          <?php
+                            if(htmlentities($row->isReading)){
+                              echo "Active Now";
+                            }else {
+                              date_default_timezone_set('Asia/Manila');
+                              // echo htmlentities($row->last_seen); 
+                              $datetime1 = new DateTime($row -> last_seen);
+                              // $datetime1 = $datetime1 -> format('F d, Y h:i A');
+
+                              $datetime2 = new DateTime();
+                              // $datetime2 = $datetime2 -> format('F d, Y h:i A');
+
+                              // echo $datetime2;
+                              // echo $datetime1;
+                              // echo $datetime2;
+                              $interval = $datetime1->diff($datetime2);
+
+
+                              $minutesDifference = ($interval->days * 24 * 60) + ($interval->h * 60) + $interval->i;
+                              echo "$minutesDifference minutes ago.";
+                            }
+                          ?>
+                        </td>
                       </tr><?php $cnt = $cnt + 1;
                     }
                   } ?>

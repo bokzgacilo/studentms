@@ -19,6 +19,8 @@ if (strlen($_SESSION['sturecmsstuid'] == 0)) {
     <link rel="stylesheet" href="vendors/select2/select2.min.css">
     <link rel="stylesheet" href="vendors/select2-bootstrap-theme/select2-bootstrap.min.css">
     <link rel="stylesheet" href="css/style.css" />
+    <script src="https://stackpath.bootstrapcdn.co/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
   </head>
 
   <body>
@@ -75,18 +77,19 @@ if (strlen($_SESSION['sturecmsstuid'] == 0)) {
                             <td><?php echo $row->DOB; ?></td>
                             <th>Student ID</th>
                             <td><?php echo $row->StuID; ?></td>
+                            
                           </tr>
                           <tr class="table-success">
                             <th>Father Name</th>
                             <td><?php echo $row->FatherName; ?></td>
-                            <th>Mother Name</th>
-                            <td><?php echo $row->MotherName; ?></td>
+                            <th>Student Contact Number</th>
+                            <td><?php echo $row->AltenateNumber; ?></td>
                           </tr>
                           <tr class="table-primary">
                             <th>Contact Number</th>
                             <td><?php echo $row->ContactNumber; ?></td>
-                            <th>Altenate Number</th>
-                            <td><?php echo $row->AltenateNumber; ?></td>
+                            <th>Mother Name</th>
+                            <td><?php echo $row->MotherName; ?></td>
                           </tr>
                           <tr class="table-progress">
                             <th>Address</th>
@@ -167,6 +170,11 @@ if (strlen($_SESSION['sturecmsstuid'] == 0)) {
 
                     </div>
                     <div class="form-group">
+                      <label for="altenateNumber">Student Contact Number</label>
+                      <input type="text" class="form-control" id="altenateNumber" name="altenateNumber"
+                        value="<?php echo htmlspecialchars($row->AltenateNumber); ?>">
+                    </div>
+                    <div class="form-group">
                       <label for="gender">Gender</label>
                       <select class="form-control" id="gender" name="gender" required>
                         <option value="Male" <?php echo ($row->Gender == 'Male') ? 'selected' : ''; ?>>Male</option>
@@ -193,11 +201,7 @@ if (strlen($_SESSION['sturecmsstuid'] == 0)) {
                       <input type="text" class="form-control" id="contactNumber" name="contactNumber"
                         value="<?php echo htmlspecialchars($row->ContactNumber); ?>" required>
                     </div>
-                    <div class="form-group">
-                      <label for="altenateNumber">Alternate Number</label>
-                      <input type="text" class="form-control" id="altenateNumber" name="altenateNumber"
-                        value="<?php echo htmlspecialchars($row->AltenateNumber); ?>">
-                    </div>
+                    
                     <div class="form-group">
                       <label for="address">Address</label>
                       <textarea class="form-control" id="address" name="address"
@@ -233,7 +237,32 @@ if (strlen($_SESSION['sturecmsstuid'] == 0)) {
     <script src="js/typeahead.js"></script>
     <script src="js/select2.js"></script>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.co/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <script>
+      $(document).ready(function(){
+        $('#contactNumber, #altenateNumber').keypress(function(event) {
+            var charCode = event.which;
+            // Allow only numbers (0-9)
+            if (charCode >= 48 && charCode <= 57) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+
+        $('#studentName, #fatherName, #motherName').keypress(function(event) {
+            var charCode = event.which;
+            // Allow A-Z, a-z and space (charCode 32)
+            if ((charCode >= 65 && charCode <= 90) || 
+                (charCode >= 97 && charCode <= 122) || 
+                charCode == 32) {
+                return true;
+            } else {
+                return false;
+            }
+        });
+      })
+    </script>
   </body>
 
   </html>
