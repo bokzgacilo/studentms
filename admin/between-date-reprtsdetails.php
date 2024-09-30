@@ -106,7 +106,7 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
                             $results1 = $query1->fetchAll(PDO::FETCH_OBJ);
                             $total_rows = $query1->rowCount();
                             $total_pages = ceil($total_rows / $no_of_records_per_page);
-                            $sql = "SELECT tblstudent.StuID,tblstudent.ID as sid,tblstudent.StudentName,tblstudent.StudentEmail,tblstudent.DateofAdmission,tblclass.ClassName,tblclass.Section from tblstudent join tblclass on tblclass.ID=tblstudent.StudentClass where date(tblstudent.DateofAdmission) between '$fdate' and '$tdate' LIMIT $offset, $no_of_records_per_page";
+                            $sql = "SELECT tblstudent.StuID,tblstudent.ID as sid,tblstudent.StudentName,tblstudent.StudentEmail,tblstudent.DateofAdmission,tblclass.ClassName,tblclass.Section from tblstudent join tblclass on tblclass.ID=tblstudent.StudentClass where date(tblstudent.DateofAdmission) between '$fdate' and '$tdate'";
                             $query = $dbh->prepare($sql);
                             $query->execute();
                             $results = $query->fetchAll(PDO::FETCH_OBJ);
@@ -136,34 +136,7 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
                           </tbody>
                         </table>
                       </div>
-                      <div align="left">
-                        <ul class="pagination">
-                          <li><a href="?pageno=1"><strong>First></strong></a></li>
-                          <li class="<?php if ($pageno <= 1) {
-                            echo 'disabled';
-                          } ?>">
-                            <a href="<?php if ($pageno <= 1) {
-                              echo '#';
-                            } else {
-                              echo "?pageno=" . ($pageno - 1);
-                            } ?>"><strong
-                                style="padding-left: 10px">Prev></strong></a>
-                          </li>
-                          <li class="<?php if ($pageno >= $total_pages) {
-                            echo 'disabled';
-                          } ?>">
-                            <a
-                              href="<?php if ($pageno >= $total_pages) {
-                                echo '#';
-                              } else {
-                                echo "?pageno=" . ($pageno + 1);
-                              } ?>"><strong
-                                style="padding-left: 10px">Next></strong></a>
-                          </li>
-                          <li><a href="?pageno=<?php echo $total_pages; ?>"><strong
-                                style="padding-left: 10px">Last</strong></a></li>
-                        </ul>
-                      </div>
+                      
                     </div>
                   </div>
                 </div>

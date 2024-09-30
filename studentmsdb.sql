@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Sep 09, 2024 at 08:29 AM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.0.30
+-- Generation Time: Sep 30, 2024 at 06:15 AM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -35,14 +35,14 @@ CREATE TABLE `tbladmin` (
   `Email` varchar(200) DEFAULT NULL,
   `Password` varchar(200) DEFAULT NULL,
   `AdminRegdate` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tbladmin`
 --
 
 INSERT INTO `tbladmin` (`ID`, `AdminName`, `UserName`, `MobileNumber`, `Email`, `Password`, `AdminRegdate`) VALUES
-(1, 'Admin', 'admin', 8979555558, 'admin@gmail.com', '21232f297a57a5a743894a0e4a801fc3', '2019-10-11 04:36:52');
+(1, 'Admin', 'admin', 8979555558, 'admin@gmail.com', 'admin', '2019-10-11 04:36:52');
 
 -- --------------------------------------------------------
 
@@ -55,14 +55,13 @@ CREATE TABLE `tblclass` (
   `ClassName` varchar(50) DEFAULT NULL,
   `Section` varchar(20) DEFAULT NULL,
   `CreationDate` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblclass`
 --
 
 INSERT INTO `tblclass` (`ID`, `ClassName`, `Section`, `CreationDate`) VALUES
-(0, '', '', '2024-08-26 06:16:18'),
 (1, 'BSE- SOCIAL STUDIES', '1', '2024-08-26 06:16:18'),
 (2, 'BSE- SOCIAL STUDIES', '2', '2024-08-26 06:16:18'),
 (3, 'BSE- SOCIAL STUDIES', '3', '2024-08-26 06:16:18'),
@@ -100,7 +99,7 @@ CREATE TABLE `tblnotice` (
   `ClassId` int(10) DEFAULT NULL,
   `NoticeMsg` mediumtext DEFAULT NULL,
   `CreationDate` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblnotice`
@@ -109,7 +108,8 @@ CREATE TABLE `tblnotice` (
 INSERT INTO `tblnotice` (`ID`, `NoticeTitle`, `ClassId`, `NoticeMsg`, `CreationDate`) VALUES
 (8, 'Test Notice', 3, 'Test', '2024-09-03 05:55:11'),
 (9, 'New', 3, '123', '2024-09-03 05:55:46'),
-(10, 'Test', 1, 'te', '2024-09-06 08:29:34');
+(10, 'Test', 1, 'te', '2024-09-06 08:29:34'),
+(11, 'TEST FOR BSMATH 3', 23, 'HELLO', '2024-09-26 00:43:04');
 
 -- --------------------------------------------------------
 
@@ -125,7 +125,7 @@ CREATE TABLE `tblpage` (
   `Email` varchar(200) DEFAULT NULL,
   `MobileNumber` bigint(10) DEFAULT NULL,
   `UpdationDate` date DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblpage`
@@ -146,7 +146,7 @@ CREATE TABLE `tblpublicnotice` (
   `NoticeTitle` varchar(200) DEFAULT NULL,
   `NoticeMessage` mediumtext DEFAULT NULL,
   `CreationDate` timestamp NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblpublicnotice`
@@ -179,23 +179,27 @@ CREATE TABLE `tblstudent` (
   `Password` varchar(200) DEFAULT NULL,
   `Image` varchar(200) DEFAULT NULL,
   `DateofAdmission` timestamp NULL DEFAULT current_timestamp(),
-  `verify` int(11) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COLLATE=latin1_swedish_ci;
+  `verify` int(11) NOT NULL,
+  `isReading` tinyint(1) NOT NULL,
+  `last_seen` datetime DEFAULT current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblstudent`
 --
 
-INSERT INTO `tblstudent` (`ID`, `StudentName`, `StudentEmail`, `StudentClass`, `Gender`, `DOB`, `StuID`, `FatherName`, `MotherName`, `ContactNumber`, `AltenateNumber`, `Address`, `UserName`, `Password`, `Image`, `DateofAdmission`, `verify`) VALUES
-(1, 'Alvarez, Roczen M.', 'test@gmail.com', '1', 'Male', '2024-10-11', '21-1-2-0291', 'father', 'mother', 123, 123, 'a', '21-1-2-0291', '51d36b8409aeab9f664a5a5cce4855a3', '21-1-2-0291.png', '0000-00-00 00:00:00', 1),
-(2, 'Arga, Rowwel B.', NULL, '8', NULL, NULL, '21-1-2-0117', NULL, NULL, NULL, NULL, NULL, '21-1-2-0117', 'ca3b7ade9b87ce8155bec1d8cd83a4d2', NULL, '2024-08-26 06:30:20', 0),
-(3, 'Bacho, Vinniel C.', NULL, '8', NULL, NULL, '21-1-2-0194', NULL, NULL, NULL, NULL, NULL, '21-1-2-0194', 'b703bacab3d8cb6951fe4bdd4a307dc2', NULL, '2024-08-26 06:30:20', 0),
-(4, 'Barnillo, Allen Jade', NULL, '8', NULL, NULL, '21-1-2-0319', NULL, NULL, NULL, NULL, NULL, '21-1-2-0319', '191a0104131c28015161faf5e76e0272', NULL, '2024-08-26 06:30:20', 0),
-(5, 'Batuigas, Anallisa C.', NULL, '8', NULL, NULL, '21-1-2-0303', NULL, NULL, NULL, NULL, NULL, '21-1-2-0303', 'f9a17b0d0fad2f510ab4850a171fe36d', NULL, '2024-08-26 06:30:20', 0),
-(6, 'Bonjoc, Hannah A.', NULL, '8', NULL, NULL, '21-1-2-0295', NULL, NULL, NULL, NULL, NULL, '21-1-2-0295', '9dbab89c2b4e7cf148d17c3655a49a84', NULL, '2024-08-26 06:30:20', 0),
-(7, 'Casingca, Christian P.', NULL, '8', NULL, NULL, '21-1-2-0497', NULL, NULL, NULL, NULL, NULL, '21-1-2-0497', '301228dc4430ff993128d5d0e263a2a2', NULL, '2024-08-26 06:30:20', 0),
-(8, 'Catubig, Jeanevearcejenyweafe G.', NULL, '8', NULL, NULL, '21-1-2-0325', NULL, NULL, NULL, NULL, NULL, '21-1-2-0325', 'b0879578bcf63394a6ad0c288b4902c0', NULL, '2024-08-26 06:30:20', 0),
-(9, 'Dionaldo, Patricia M.', NULL, '8', NULL, NULL, '21-1-2-0232', NULL, NULL, NULL, NULL, NULL, '21-1-2-0232', '31d75b5a2ff15b5608d87079919f5f22', NULL, '2024-08-26 06:30:20', 0);
+INSERT INTO `tblstudent` (`ID`, `StudentName`, `StudentEmail`, `StudentClass`, `Gender`, `DOB`, `StuID`, `FatherName`, `MotherName`, `ContactNumber`, `AltenateNumber`, `Address`, `UserName`, `Password`, `Image`, `DateofAdmission`, `verify`, `isReading`, `last_seen`) VALUES
+(1, 'Alvarez, Roczen M.', 'test@gmail.com', '23', 'Male', '2024-10-11', '21-1-2-0291', 'father', 'mother', 123, 123, 'a', '21-1-2-0291', 'testing', '21-1-2-0291.png', '0000-00-00 00:00:00', 1, 0, '2024-09-28 15:41:42'),
+(2, 'Arga, Rowwel B.', 'argarowell@gmail.com', '16', 'Male', '2001-10-10', '21-1-2-0117', 'Test Father', 'Test Mother', 9883, 333, 'Address', '21-1-2-0117', '12345', NULL, '2024-08-26 06:30:20', 1, 0, '2024-09-28 15:22:55'),
+(3, 'Bacho, Vinniel C.', NULL, '8', NULL, NULL, '21-1-2-0194', NULL, NULL, NULL, NULL, NULL, '21-1-2-0194', '12345', NULL, '2024-08-26 06:30:20', 0, 0, '2024-09-28 15:22:55'),
+(4, 'Barnillo, Allen Jade', NULL, '8', NULL, NULL, '21-1-2-0319', NULL, NULL, NULL, NULL, NULL, '21-1-2-0319', '12345', NULL, '2024-08-26 06:30:20', 0, 0, '2024-09-28 15:22:55'),
+(5, 'Batuigas, Anallisa C.', NULL, '8', NULL, NULL, '21-1-2-0303', NULL, NULL, NULL, NULL, NULL, '21-1-2-0303', '12345', NULL, '2024-08-26 06:30:20', 0, 0, '2024-09-28 15:22:55'),
+(6, 'Bonjoc, Hannah A.', NULL, '8', NULL, NULL, '21-1-2-0295', NULL, NULL, NULL, NULL, NULL, '21-1-2-0295', '12345', NULL, '2024-08-26 06:30:20', 0, 0, '2024-09-28 15:22:55'),
+(7, 'Casingca, Christian P.', NULL, '8', NULL, NULL, '21-1-2-0497', NULL, NULL, NULL, NULL, NULL, '21-1-2-0497', '12345', NULL, '2024-08-26 06:30:20', 0, 0, '2024-09-28 15:22:55'),
+(8, 'Catubig, Jeanevearcejenyweafe G.', NULL, '8', NULL, NULL, '21-1-2-0325', NULL, NULL, NULL, NULL, NULL, '21-1-2-0325', '12345', NULL, '2024-08-26 06:30:20', 0, 0, '2024-09-28 15:22:55'),
+(9, 'Dionaldo, Patricia M.', NULL, '8', NULL, NULL, '21-1-2-0232', NULL, NULL, NULL, NULL, NULL, '21-1-2-0232', '12345', NULL, '2024-08-26 06:30:20', 0, 0, '2024-09-28 15:22:55'),
+(10, 'test@gmail.com', 'test2@gmail.com', '0', 'Male', '2024-09-30', '23232323232323232', 'asdasd', 'asdasd', 11111111111, 11111111111, 'asdasd', '11-1-1-1111', '11111', NULL, '2024-09-30 04:07:04', 0, 0, '2024-09-30 12:07:04'),
+(11, 'testsadasd@gmail.com', 'testsadasd@gmail.com', '0', 'Male', '2024-09-30', '22222222', 'asdasd', 'asdasdasd', 22222222222, 22222222222, 'asdasdasdasd', '22-2-2-2222', '22222', NULL, '2024-09-30 04:08:29', 1, 0, '2024-09-30 12:08:43');
 
 -- --------------------------------------------------------
 
@@ -211,7 +215,7 @@ CREATE TABLE `tblviolations` (
   `description` text NOT NULL,
   `severity` int(11) NOT NULL,
   `penalty` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `tblviolations`
@@ -263,7 +267,35 @@ INSERT INTO `tblviolations` (`id`, `student_id`, `violation_date`, `violation_ty
 (43, 0, '2024-08-01', 'Minor Academic Offenses', 'Late Submission of Projects', 1, 'Summon to Parents'),
 (44, 0, '2024-08-01', 'Minor Academic Offenses', 'Missing Class without Excuse', 1, 'Summon to Parents'),
 (45, 0, '2024-08-01', 'Minor Academic Offenses', 'Unacceptable Behavior in Class', 1, 'Summon to Parents'),
-(46, 14, '2024-09-03', 'Major University Offenses', 'Mass Action - Leading violent rallies', 1, '12 hrs. Transformative Experience');
+(46, 0, '2024-09-03', 'Major University Offenses', 'Mass Action - Leading violent rallies', 1, '12 hrs. Transformative Experience');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `violations`
+--
+
+CREATE TABLE `violations` (
+  `id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `violation_date` date NOT NULL,
+  `violation_type` varchar(255) NOT NULL,
+  `description` text DEFAULT NULL,
+  `severity` int(11) NOT NULL,
+  `penalty` varchar(255) DEFAULT NULL,
+  `created_at` timestamp NOT NULL DEFAULT current_timestamp(),
+  `updated_at` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `violations`
+--
+
+INSERT INTO `violations` (`id`, `student_id`, `violation_date`, `violation_type`, `description`, `severity`, `penalty`, `created_at`, `updated_at`) VALUES
+(1, 1, '2024-09-21', 'Major University Offenses', 'Prohibited Drugs - Sale, Trading, Administration', 3, 'asdasdasd', '2024-09-21 08:04:12', '2024-09-21 08:04:12'),
+(2, 1, '2024-09-21', 'Minor Academic Offenses', 'Liquor - Entering the university in a drunken state', 3, 'asdasdasd', '2024-09-21 08:05:24', '2024-09-21 08:05:24'),
+(3, 2, '2024-09-19', 'Major University Offenses', 'Prohibited Drugs - Sale, Trading, Administration', 1, 'Suspension for the rest of the semester', '2024-09-25 04:50:52', '2024-09-25 04:50:52'),
+(4, 2, '2024-09-19', 'Major University Offenses', 'Prohibited Drugs - Sale, Trading, Administration', 1, 'Suspension for the rest of the semester', '2024-09-25 04:50:56', '2024-09-25 04:50:56');
 
 --
 -- Indexes for dumped tables
@@ -312,6 +344,13 @@ ALTER TABLE `tblviolations`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `violations`
+--
+ALTER TABLE `violations`
+  ADD PRIMARY KEY (`id`),
+  ADD KEY `student_id` (`student_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -331,7 +370,7 @@ ALTER TABLE `tblclass`
 -- AUTO_INCREMENT for table `tblnotice`
 --
 ALTER TABLE `tblnotice`
-  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `ID` int(5) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tblpage`
@@ -349,13 +388,29 @@ ALTER TABLE `tblpublicnotice`
 -- AUTO_INCREMENT for table `tblstudent`
 --
 ALTER TABLE `tblstudent`
-  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
+  MODIFY `ID` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `tblviolations`
 --
 ALTER TABLE `tblviolations`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=47;
+
+--
+-- AUTO_INCREMENT for table `violations`
+--
+ALTER TABLE `violations`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- Constraints for dumped tables
+--
+
+--
+-- Constraints for table `violations`
+--
+ALTER TABLE `violations`
+  ADD CONSTRAINT `violations_ibfk_1` FOREIGN KEY (`student_id`) REFERENCES `tblstudent` (`ID`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

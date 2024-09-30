@@ -34,7 +34,7 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
       } else {
         $image = md5($image) . time() . $extension;
         move_uploaded_file($_FILES["image"]["tmp_name"], "images/" . $image);
-        $sql = "insert into tblstudent(StudentName,StudentEmail,StudentClass,Gender,DOB,StuID,FatherName,MotherName,ContactNumber,AltenateNumber,Address,UserName,Password,Image)values(:stuname,:stuemail,:stuclass,:gender,:dob,:stuid,:fname,:mname,:connum,:altconnum,:address,:uname,:password,:image)";
+        $sql = "insert into tblstudent(StudentName,StudentEmail,StudentClass,Gender,DOB,StuID,FatherName,MotherName,ContactNumber,AltenateNumber,Address,UserName,Password,Image, verifyx )values(:stuname,:stuemail,:stuclass,:gender,:dob,:stuid,:fname,:mname,:connum,:altconnum,:address,:uname,:password,:image, 1)";
         $query = $dbh->prepare($sql);
         $query->bindParam(':stuname', $stuname, PDO::PARAM_STR);
         $query->bindParam(':stuemail', $stuemail, PDO::PARAM_STR);
