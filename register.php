@@ -1,17 +1,7 @@
 <?php
-$host = 'localhost';
-$dbname = 'studentmsdb';
-$user = 'root'; // Default MySQL username
-$pass = ''; // Default MySQL password
-
-try {
-  $pdo = new PDO("mysql:host=$host;dbname=$dbname", $user, $pass);
-  $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-} catch (PDOException $e) {
-  die("Connection failed: " . $e->getMessage());
-}
-
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+  include('includes/dbconnection.php');
+
   // Retrieve form data
   $stuname = $_POST['stuname'];
   $stuemail = $_POST['stuemail'];
@@ -39,10 +29,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   }
 
   // Insert data into the database
-  $sql = "INSERT INTO tblstudent (StudentName, StudentEmail, StudentClass, Gender, DOB, StuID, FatherName, MotherName, ContactNumber, AltenateNumber, Address, UserName, Password, Image, verify) 
-            VALUES (:stuname, :stuemail, :stuclass, :gender, :dob, :stuid, :fname, :mname, :connum, :altconnum, :address, :uname, :password, :image, 1)";
+  $sql = "INSERT INTO tblstudent (StudentName, StudentEmail, StudentClass, Gender, DOB, StuID, FatherName, MotherName, ContactNumber, AltenateNumber, Address, UserName, Password, Image) 
+            VALUES (:stuname, :stuemail, :stuclass, :gender, :dob, :stuid, :fname, :mname, :connum, :altconnum, :address, :uname, :password, :image)";
 
-  $stmt = $pdo->prepare($sql);
+  $stmt = $dbh->prepare($sql);
 
   $stmt->execute([
     ':stuname' => $stuname,
@@ -100,9 +90,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="stuemail">Student Email</label>
         <input type="email" name="stuemail" id="stuemail" class="form-control" required>
       </div>
-      <div class="form-group " hidden>
-        <label for="stuclass">Student Class</label>
-        <input value="0" type="number" name="stuclass" id="stuclass" class="form-control" required>
+      <div class="form-group">
+        <label for="studentClass">Student Class</label>
+        <select class="form-control" id="stuclass" name="stuclass" required>
+          <?php
+          include('includes/dbconnection.php');
+          // Fetch classes for the dropdown
+          $classSql = "SELECT ID, ClassName, Section FROM tblclass";
+          $classQuery = $dbh->prepare($classSql);
+          $classQuery->execute();
+          $classes = $classQuery->fetchAll(PDO::FETCH_OBJ);
+          foreach ($classes as $class) {
+            $selected = ($class->ID == $row->StudentClass) ? 'selected' : '';
+            $displayText = htmlspecialchars($class->ClassName) . ' - ' . htmlspecialchars($class->Section);
+            echo '<option value="' . htmlspecialchars($class->ID) . '" ' . $selected . '>' . $displayText . '</option>';
+          }
+          ?>
+        </select>
+
       </div>
       <div class="form-group">
         <label for="gender">Gender</label>
@@ -183,7 +188,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       });
 
       // Bind the input event to validate while typing
-      $('#uname').on('input', function() {
+      $('#uname, #stuid').on('input', function() {
         // Get the current value of the input field
         var inputVal = $(this).val();
 

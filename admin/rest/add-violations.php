@@ -8,11 +8,6 @@ include('../includes/restconnection.php');
   $severity = $_POST['severity'];
   $penalty = $_POST['penalty'];
 
-  // Check for existing violations for the same student and date
-  // $stmt = $conn->prepare("SELECT * FROM tblviolations WHERE student_id = ? AND violation_date = ?");
-  // $stmt->bind_param("is", $student_id, $violation_date);
-  // $stmt->execute();
-  // $result = $stmt->get_result();
 
   // Insert the new violation
   $stmt = $conn->prepare("INSERT INTO violations (student_id, violation_date, violation_type, description, severity, penalty) VALUES (?, ?, ?, ?, ?, ?)");
