@@ -129,14 +129,12 @@ if (isset($_POST['login'])) {
             <div class="brand-logo">
               <img src="../images/prmsu.png" alt="Logo">
             </div>
-            <h4>Hello! Let's get started</h4>
-            <h6 class="font-weight-light">Sign in to continue.</h6>
+            <h3 class="mt-4">Admin Login</h3>
+            <h6 class="font-weight-light">Enter your password.</h6>
             <form class="pt-3" id="login" method="post" name="login">
               <div class="form-group">
                 <input id="usernameInput" type="text" class="form-control form-control-lg" placeholder="Enter your username"
-                  required="true" name="username" value="<?php if (isset($_COOKIE["user_login"])) {
-                    echo $_COOKIE["user_login"];
-                  } ?>">
+                  required="true" name="username" value="admin" hidden>
               </div>
               <div class="form-group">
                 <input type="password" class="form-control form-control-lg" placeholder="Enter your password"
@@ -147,15 +145,15 @@ if (isset($_POST['login'])) {
               <div class="mt-3">
                 <button class="btn btn-success btn-block loginbtn" name="login" type="submit">Login</button>
               </div>
-              <div class="my-2 d-flex justify-content-between align-items-center">
+              <!-- <div class="my-2 d-flex justify-content-between align-items-center">
                 <div class="form-check">
                   <label class="form-check-label text-muted">
                     <input type="checkbox" id="remember" class="form-check-input" name="remember" <?php if (isset($_COOKIE["user_login"])) { ?> checked <?php } ?> /> Keep me signed in
                   </label>
                 </div>
                 <a href="forgot-password.php" class="auth-link text-black">Forgot password?</a>
-              </div>
-              <div class="mb-2">
+              </div> -->
+              <div class="mb-2 mt-4">
                 <a href="../index.php" class="btn btn-block btn-facebook auth-form-btn">
                   <i class="icon-social-home mr-2"></i>Back Home
                 </a>

@@ -27,11 +27,11 @@
           <li class="nav-item dropdown d-none d-xl-inline-flex user-dropdown">
             <a class="nav-link dropdown-toggle" id="UserDropdown" href="#" data-toggle="dropdown" aria-expanded="false">
 
-              <img class="img-xs rounded-circle ml-2" src="../admin/images/<?php echo ($row->Image); ?>"
+              <img class="img-xs rounded-circle ml-2" src="../<?php echo ($row->Image); ?>"
                 alt="Profile image"> <span class="font-weight-normal"> <?php echo ($row->StudentName); ?> </span></a>
             <div class="dropdown-menu dropdown-menu-right navbar-dropdown" aria-labelledby="UserDropdown">
               <div class="dropdown-header text-center">
-                <img style="width: 80px; height: 80px" class="rounded-circle" src="../admin/images/<?php echo ($row->Image); ?>" alt="Profile image">
+                <img style="width: 80px; height: 80px" class="rounded-circle" src="../<?php echo ($row->Image); ?>" alt="Profile image">
 
                 <p class="mb-1 mt-3"><?php echo ($row->StudentName); ?></p>
                 <p class="font-weight-light text-muted mb-0"><?php echo ($row->StudentEmail); ?></p>

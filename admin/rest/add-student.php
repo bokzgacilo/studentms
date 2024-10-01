@@ -1,5 +1,20 @@
 <?php
+  function generateRandomString($length = 10) {
+    $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+  
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+  
+    return $randomString;
+  }
+
   include('../includes/restconnection.php');
+  include('../../mailer.php');
+
+  $code = generateRandomString(10);
 
   $stuname = $_POST['stuname'];
   $stuemail = $_POST['stuemail'];
@@ -33,16 +48,18 @@
           echo "<script>alert('Logo has Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
       } else {
           $image = md5($image) . time() . $extension;
-          move_uploaded_file($_FILES["image"]["tmp_name"], "images/" . $image);
+          move_uploaded_file($_FILES["image"]["tmp_name"], "../../user/images/profile/" . $image);
+          $image_url = "user/images/profile/" . $image;
   
           // Insert new student data
-          $sql = "INSERT INTO tblstudent (StudentName, StudentEmail, StudentClass, Gender, DOB, StuID, FatherName, MotherName, ContactNumber, AltenateNumber, Address, UserName, Password, Image) 
-                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+          $sql = "INSERT INTO tblstudent (StudentName, StudentEmail, StudentClass, Gender, DOB, StuID, FatherName, MotherName, ContactNumber, AltenateNumber, Address, UserName, Password, Image, code) 
+                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
           $stmt = $conn->prepare($sql);
-          $stmt->bind_param("ssssssssssssss", $stuname, $stuemail, $stuclass, $gender, $dob, $stuid, $fname, $mname, $connum, $altconnum, $address, $uname, $password, $image);
+          $stmt->bind_param("sssssssssssssss", $stuname, $stuemail, $stuclass, $gender, $dob, $stuid, $fname, $mname, $connum, $altconnum, $address, $uname, $password, $image_url, $code);
   
           if ($stmt->execute()) {
               echo 'Student has been added.';
+              sendEmail($stuid, $stuemail, $stuname, $code);
           } else {
               echo 'Something Went Wrong. Please try again';
           }

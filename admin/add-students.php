@@ -120,18 +120,16 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
                       <h3>Parents/Guardian's details</h3>
                       <div class="form-group">
                         <label for="exampleInputName1">Father's Name</label>
-                        <input type="text" name="fname" id="fname" value="" class="form-control" required='true'>
+                        <input type="text" name="fname" id="fname" value="" class="form-control">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputName1">Mother's Name</label>
-                        <input type="text" name="mname" id="mname" value="" class="form-control" required='true'>
+                        <input type="text" name="mname" id="mname" value="" class="form-control">
                       </div>
                       <div class="form-group">
                         <label for="exampleInputName1">Contact Number</label>
                         <input type="text" name="connum" id="connum" value="" class="form-control" required='true' maxlength="11">
-                         
                       </div>
-                     
                       <div class="form-group">
                         <label for="exampleInputName1">Address</label>
                         <textarea name="address" class="form-control" required='true'></textarea>

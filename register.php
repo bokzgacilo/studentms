@@ -1,6 +1,22 @@
 <?php
+
+function generateRandomString($length = 10) {
+  $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  $charactersLength = strlen($characters);
+  $randomString = '';
+
+  for ($i = 0; $i < $length; $i++) {
+      $randomString .= $characters[rand(0, $charactersLength - 1)];
+  }
+
+  return $randomString;
+}
+
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   include('includes/dbconnection.php');
+  include('mailer.php');
+
+  $code = generateRandomString(10);
 
   // Retrieve form data
   $stuname = $_POST['stuname'];
@@ -25,12 +41,12 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $target_file = $target_dir . basename($image);
     move_uploaded_file($image_tmp, $target_file);
   } else {
-    $image = NULL;
+    $image = "user/images/faces/default.jpg";
   }
 
   // Insert data into the database
-  $sql = "INSERT INTO tblstudent (StudentName, StudentEmail, StudentClass, Gender, DOB, StuID, FatherName, MotherName, ContactNumber, AltenateNumber, Address, UserName, Password, Image) 
-            VALUES (:stuname, :stuemail, :stuclass, :gender, :dob, :stuid, :fname, :mname, :connum, :altconnum, :address, :uname, :password, :image)";
+  $sql = "INSERT INTO tblstudent (StudentName, StudentEmail, StudentClass, Gender, DOB, StuID, FatherName, MotherName, ContactNumber, AltenateNumber, Address, UserName, Password, Image, code) 
+    VALUES (:stuname, :stuemail, :stuclass, :gender, :dob, :stuid, :fname, :mname, :connum, :altconnum, :address, :uname, :password, :image, :code)";
 
   $stmt = $dbh->prepare($sql);
 
@@ -48,10 +64,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ':address' => $address,
     ':uname' => $uname,
     ':password' => $_POST['password'],
-    ':image' => $image
+    ':image' => $image,
+    ':code' => $code
   ]);
 
+
   echo "Student added successfully!";
+
+  sendEmail($stuid, $stuemail, $stuname, $code);
 }
 ?>
 
@@ -130,19 +150,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <input type="text" name="altconnum" id="altconnum" class="form-control" required pattern="\d{11}"
           title="Contact number must be exactly 11 digits">
       </div>
-
+      <div class="form-group">
+        <label for="exampleInputName1">Student Photo</label>
+        <input type="file" name="image" value="" class="form-control">
+      </div>
       <h4>Parents/Guardian's details</h4>
       <div class="form-group">
         <label for="fname">Father's Name</label>
-        <input type="text" name="fname" id="fname" class="form-control" required>
+        <input type="text" name="fname" id="fname" class="form-control">
       </div>
       <div class="form-group">
         <label for="mname">Mother's Name</label>
-        <input type="text" name="mname" id="mname" class="form-control" required>
+        <input type="text" name="mname" id="mname" class="form-control">
       </div>
       <div class="form-group">
         <label for="connum">Contact Number</label>
-        <input type="text" name="connum" id="connum" class="form-control" required pattern="\d{11}"
+        <input type="text" name="connum" id="connum" class="form-control" pattern="\d{11}"
           title="Contact number must be exactly 11 digits">
       </div>
       
@@ -177,7 +200,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
       $('#stuname, #fname, #mname').keypress(function(event) {
           var charCode = event.which;
-          // Allow A-Z, a-z and space (charCode 32)
           if ((charCode >= 65 && charCode <= 90) || 
               (charCode >= 97 && charCode <= 122) || 
               charCode == 32) {

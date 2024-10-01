@@ -16,7 +16,7 @@
         if ($query->rowCount() > 0) {
           foreach ($results as $row) { ?>
             <div class="profile-image">
-              <img class="img-xs rounded-circle" src="../admin/images/<?php echo ($row->Image); ?>" alt="profile image">
+              <img class="img-xs rounded-circle" src="../<?php echo ($row->Image); ?>" alt="profile image">
               <div class="dot-indicator bg-success"></div>
             </div>
             <div class="text-wrapper">
