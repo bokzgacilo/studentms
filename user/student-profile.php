@@ -99,7 +99,7 @@ if (strlen($_SESSION['sturecmsstuid'] == 0)) {
                           </tr>
                           <tr class="table-info">
                             <th>Profile Image</th>
-                            <td><img src="../admin/images/<?php echo $row->Image; ?>" width="100" height="100"></td>
+                            <td><img src="../<?php echo $row->Image; ?>" width="100" height="100"></td>
                             <th>Date of Admission</th>
                             <td><?php echo $row->DateofAdmission; ?></td>
                           </tr>
