@@ -30,14 +30,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $connum = $_POST['connum'];
   $altconnum = $_POST['altconnum'];
   $address = $_POST['address'];
-  $uname = $_POST['uname'];
+  // $uname = $_POST['uname'];
   $password = $_POST['password'];
 
   // Handle file upload
   if (!empty($_FILES['image']['name'])) {
     $image = $_FILES['image']['name'];
     $image_tmp = $_FILES['image']['tmp_name'];
-    $target_dir = "uploads/";
+    $target_dir = "user/images/faces/";
     $target_file = $target_dir . basename($image);
     move_uploaded_file($image_tmp, $target_file);
   } else {
@@ -62,9 +62,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ':connum' => $connum,
     ':altconnum' => $altconnum,
     ':address' => $address,
-    ':uname' => $uname,
+    ':uname' => $stuid,
     ':password' => $_POST['password'],
-    ':image' => $image,
+    ':image' => "user/images/faces/$image",
     ':code' => $code
   ]);
 
@@ -141,10 +141,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         <label for="dob">Date of Birth</label>
         <input type="date" name="dob" id="dob" class="form-control" required>
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="stuid">Student ID</label>
         <input type="text" name="stuid" id="stuid" class="form-control" required>
-      </div>
+      </div> -->
       <div class="form-group">
         <label for="altconnum">Contact Number</label>
         <input type="text" name="altconnum" id="altconnum" class="form-control" required pattern="\d{11}"
@@ -176,9 +176,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
       </div>
       <h4>Login details</h4>
       <div class="form-group">
+        <label for="stuid">Student ID</label>
+        <input type="text" name="stuid" id="stuid" class="form-control" required>
+      </div>
+      <!-- <div class="form-group">
         <label for="uname">Student Code</label>
         <input type="text" name="uname" id="uname" class="form-control" required>
-      </div>
+      </div> -->
       <div class="form-group">
         <label for="password">Password</label>
         <input type="password" name="password" id="password" class="form-control" required>

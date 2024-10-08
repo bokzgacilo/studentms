@@ -109,21 +109,25 @@ if (strlen($_SESSION['sturecmsaid'] == 0)) {
                               echo "Active Now";
                             }else {
                               date_default_timezone_set('Asia/Manila');
-                              // echo htmlentities($row->last_seen); 
-                              $datetime1 = new DateTime($row -> last_seen);
-                              // $datetime1 = $datetime1 -> format('F d, Y h:i A');
-
+                              $datetime1 = new DateTime($row->last_seen);
                               $datetime2 = new DateTime();
-                              // $datetime2 = $datetime2 -> format('F d, Y h:i A');
 
-                              // echo $datetime2;
-                              // echo $datetime1;
-                              // echo $datetime2;
                               $interval = $datetime1->diff($datetime2);
 
-
                               $minutesDifference = ($interval->days * 24 * 60) + ($interval->h * 60) + $interval->i;
-                              echo "$minutesDifference minutes ago.";
+
+                              if ($minutesDifference < 60) {
+                                // Less than 1 hour
+                                echo "$minutesDifference minutes ago.";
+                              } elseif ($minutesDifference < 1440) { // 1440 minutes = 24 hours
+                                // Less than 1 day
+                                $hoursDifference = floor($minutesDifference / 60);
+                                echo "$hoursDifference hour" . ($hoursDifference > 1 ? 's' : '') . " ago.";
+                              } else {
+                                // More than or equal to 1 day
+                                $daysDifference = $interval->days;
+                                echo "$daysDifference day" . ($daysDifference > 1 ? 's' : '') . " ago.";
+                              }
                             }
                           ?>
                         </td>
